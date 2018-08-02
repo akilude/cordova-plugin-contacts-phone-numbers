@@ -7,7 +7,7 @@ cordova plugin add cordova-plugin-contacts-phonenumbers
 ```
 or use this repository (unstable)
 ```
-cordova plugin add https://github.com/dbaq/cordova-plugin-contacts-phone-numbers.git
+cordova plugin add https://github.com/akilude/cordova-plugin-contacts-phone-numbers.git --save
 ```
 ## Using the plugin ##
 The plugin creates the object `navigator.contactsPhoneNumbers` with the methods
