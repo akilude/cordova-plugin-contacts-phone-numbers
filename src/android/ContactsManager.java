@@ -172,8 +172,8 @@ public class ContactsManager extends CordovaPlugin {
                 }
                 // Push the last contact into the contacts array
                 contact.put("phoneNumbers", phones);
-                Log.w(LOG_TAG, contact.firstName, e);
-                Log.w(LOG_TAG, contact.raw_id);
+                Log.w(LOG_TAG, contact.getString("firstName"));
+                Log.w(LOG_TAG, contact.getString("raw_id"));
                 contacts.put(contact);
             }
         } catch (JSONException e) {
