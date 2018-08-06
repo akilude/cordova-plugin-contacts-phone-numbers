@@ -11,7 +11,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dbaq/cordova-plugin-contacts-phone-numbers.git"
+    
+    "url": "git+https://github.com/akilude/cordova-plugin-contacts-phone-numbers.git"
   },
   "keywords": [
     "cordova",
@@ -26,7 +27,7 @@
   "author": "Didier Baquier",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/dbaq/cordova-plugin-contacts-phone-numbers/issues"
+    "url": "https://github.com/akilude/cordova-plugin-contacts-phone-numbers/issues"
   },
-  "homepage": "https://github.com/dbaq/cordova-plugin-contacts-phone-numbers#readme"
+  "homepage": "https://github.com/akilude/cordova-plugin-contacts-phone-numbers#readme"
 }
