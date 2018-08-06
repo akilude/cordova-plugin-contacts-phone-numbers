@@ -9,10 +9,10 @@
       "ios"
     ]
   },
-  // "repository": {
-  //   "type": "git",
-  //   "url": "git://github.com/akilude/cordova-plugin-contacts-phone-numbers.git"
-  // },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akilude/cordova-plugin-contacts-phone-numbers.git"
+  },
   "keywords": [
     "cordova",
     "contacts",
