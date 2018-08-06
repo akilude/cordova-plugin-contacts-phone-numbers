@@ -20,6 +20,19 @@ import android.provider.ContactsContract.Contacts.Data;
 import android.util.Log;
 import static android.Manifest.permission.READ_CONTACTS;
 
+
+// added below imports
+import java.util.ArrayList;
+import android.content.ContentProviderOperation;
+import android.provider.ContactsContract;
+import android.provider.ContactsContract.RawContacts;
+import android.content.ContentProviderResult;
+import android.provider.ContactsContract.Data;
+import android.widget.Toast;
+import android.net.Uri;
+import android.provider.ContactsContract.Settings;
+
+
 public class ContactsManager extends CordovaPlugin {
 
     private CallbackContext callbackContext;
@@ -29,6 +42,8 @@ public class ContactsManager extends CordovaPlugin {
     private static final int READ_CONTACTS_REQ_CODE = 0;
 
     public static final String ACTION_LIST_CONTACTS = "list";
+
+    public static final String ACTION_UPDATE = "update";
 
     private static final String LOG_TAG = "Contact Phone Numbers";
 
@@ -46,6 +61,18 @@ public class ContactsManager extends CordovaPlugin {
 
         this.callbackContext = callbackContext;
         this.executeArgs = args;
+
+        if(action.equals(ACTION_UPDATE)){
+            String id = args.getString(0);
+
+            this.cordova.getThreadPool().execute(new Runnable() {
+                public void run() {
+                    callbackContext.success(update(id));
+                }
+            });
+
+            return true;
+        }
 
         if (ACTION_LIST_CONTACTS.equals(action)) {
             if (cordova.hasPermission(android.Manifest.permission.READ_CONTACTS)) {
@@ -105,6 +132,53 @@ public class ContactsManager extends CordovaPlugin {
         contacts = populateContactArray(cursor);
         return contacts;
     }
+
+
+
+
+
+
+
+    private JSONArray update(String uid) {
+
+        ContentResolver resolver = context.getContentResolver();
+
+        ArrayList<ContentProviderOperation> ops = new ArrayList<ContentProviderOperation>();
+    
+        ops.add(ContentProviderOperation.newInsert(addCallerIsSyncAdapterParameter(RawContacts.CONTENT_URI, true))
+          .withValue(RawContacts.ACCOUNT_NAME, "Livewire")
+          .withValue(RawContacts.ACCOUNT_TYPE, "com.everycrave.livewire.account")
+          .build());
+    
+        ops.add(ContentProviderOperation.newInsert(addCallerIsSyncAdapterParameter(Settings.CONTENT_URI, true))
+          .withValue(RawContacts.ACCOUNT_NAME, "Livewire")
+          .withValue(RawContacts.ACCOUNT_TYPE, "com.everycrave.livewire.account")
+          .withValue(Settings.UNGROUPED_VISIBLE, 1)
+          .build());
+    
+        ops.add(ContentProviderOperation.newInsert(addCallerIsSyncAdapterParameter(Data.CONTENT_URI, true))
+            .withValueBackReference(Data.RAW_CONTACT_ID, Integer.parseInt(uid))
+            .withValue(Data.MIMETYPE, "vnd.android.cursor.item/vnd.com.everycrave.livewire")
+            .withValue(Data.DATA1, 12345)
+            .withValue(Data.DATA2, "sample")
+            .withValue(Data.DATA3, "sample")
+            .build());
+        try {
+          ContentProviderResult[] results = resolver.applyBatch(ContactsContract.AUTHORITY, ops);
+          if (results.length == 0)
+            ;
+        }
+        catch (Exception e) {
+          e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+
 
 
     /**
