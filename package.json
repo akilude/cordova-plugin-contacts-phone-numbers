@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akilude/cordova-plugin-contacts-phone-numbers.git"
+    "url": "git+https://github.com/akilude/cordova-plugin-contacts-phone-numbers"
   },
   "keywords": [
     "cordova",
