@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-contacts-phonenumbers",
-  "version": "0.10",
+  "version": "0.0.10",
   "description": "Cordova Plugin to List Contacts Phone Numbers ",
   "cordova": {
     "id": "cordova-plugin-contacts-phonenumbers",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/akilude/cordova-plugin-contacts-phone-numbers"
+    "url": "git+https://github.com/akilude/cordova-plugin-contacts-phone-numbers.git"
   },
   "keywords": [
     "cordova",
