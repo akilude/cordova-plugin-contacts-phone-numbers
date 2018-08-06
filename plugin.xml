@@ -3,13 +3,13 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.dbaq.cordova.contactsPhoneNumbers"
-    version="0.0.10">
+    version="0.10">
 
     <name>Contacts Phone Numbers</name>
-    <description>Cordova Plugin to List Contacts Phone Numbers </description>
+    <description>Cordova Plugin to List Contacts Phone Numbers</description>
     <license>Apache 2.0</license>
     <keywords>cordova,contacts,list,phone,numbers</keywords>
-    <issue>https://github.com/dbaq/cordova-plugin-contacts-phone-numbers/issues</issue>
+    <issue>https://github.com/akilude/cordova-plugin-contacts-phone-numbers/issues</issue>
 
     <js-module src="www/contactsPhoneNumbers.js" name="contactsPhoneNumbers">
         <clobbers target="navigator.contactsPhoneNumbers" />
@@ -25,6 +25,7 @@
 
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.READ_CONTACTS" />
+            <uses-permission android:name="android.permission.WRITE_CONTACTS" />
         </config-file>
 
         <source-file src="src/android/ContactsManager.java" target-dir="src/com/dbaq/cordova/contactsPhoneNumbers" />

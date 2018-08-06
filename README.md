@@ -3,11 +3,7 @@ Cross-platform plugin for Cordova / PhoneGap to list all the contacts with at le
 
 ## Installing the plugin ##
 ```
-cordova plugin add cordova-plugin-contacts-phonenumbers
-```
-or use this repository (unstable)
-```
-cordova plugin add https://github.com/akilude/cordova-plugin-contacts-phone-numbers.git --save
+cordova plugin add https://github.com/akilude/cordova-plugin-contacts-phone-numbers --save
 ```
 ## Using the plugin ##
 The plugin creates the object `navigator.contactsPhoneNumbers` with the methods
